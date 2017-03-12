@@ -1,0 +1,55 @@
+<!--<h1>{{ title }}</h1>-->
+<!--<p>Пополение счета на {{ amount }} рублей</p>-->
+
+
+
+<html>
+<head>
+    <script src="https://securepay.tinkoff.ru/html/payForm/js/tinkoff.js"></script>
+    <script type="text/javascript">
+
+        window.onload = function() {
+
+            makePayment( {{ amount }} * 100, "{{ orderId }}",
+            "{{ descript }}", "{{ name }}", "{{ email }}", "{{ phone }}")
+
+
+            function makePayment(amount, orderId, description, name, email, phone) {
+                var params = {
+                    //Код терминала (обязательный параметр), выдается банком.
+                    TerminalKey: {{ terminalKey }},
+                    //Сумма заказа в копейках (обязательный параметр)
+                    Amount: amount,
+                    //Номер заказа (если не передан, принудительно устанавливается timestamp)
+                    OrderId: orderId,
+                    //Описание заказа (не обязательный параметр)
+                    Description: description,
+                    //Дополнительные параметры платежа
+                    DATA: "Email=" + email + "|Phone=" + phone + "|Name=" + name,
+                    //Флаг открытия платежной формы во фрейме
+                    Frame: true
+                };
+                doPay(params);
+            }
+        }
+    </script>
+    <style> .tinkoffPayRow { display: block; margin: 1%; width: 160px; } </style>
+</head>
+<body>
+<!--<form name="TinkoffPayForm">-->
+    <!--<input class="tinkoffPayRow" type="text" placeholder="Сумма заказа" name="paySum">-->
+    <!--<input class="tinkoffPayRow" type="hidden" placeholder="Номер заказа" name="payOrder">-->
+    <!--<textarea class="tinkoffPayRow" type="text" placeholder="Описание заказа"-->
+              <!--name="payDesc"></textarea>-->
+    <!--<input class="tinkoffPayRow" type="text" placeholder="ФИО плательщика" name="payName">-->
+    <!--<input class="tinkoffPayRow" type="text" placeholder="E-mail" name="payEmail">-->
+    <!--<input class="tinkoffPayRow" type="text" placeholder="Контактный телефон"-->
+           <!--name="payPhone">-->
+    <!--<input class="tinkoffPayRow" type="button"-->
+           <!--onclick="makePayment(document.TinkoffPayForm.paySum.value.replace(/,/ig,'.') * 100, document.TinkoffPayForm.payOrder.value,-->
+                                        <!--document.TinkoffPayForm.payDesc.value, document.TinkoffPayForm.payName.value,-->
+                                        <!--document.TinkoffPayForm.payEmail.value, document.TinkoffPayForm.payPhone.value)"-->
+           <!--value="Оплатить">-->
+<!--</form>-->
+</body>
+</html>

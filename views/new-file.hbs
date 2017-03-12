@@ -1,0 +1,83 @@
+<div class="upload-container">
+    <h2 class="uploadContainer__h2">Загрузка файлов в папку Лина</h2>
+    <form id="upload-widget" method="post" action="/saveFiles" class="dropzone decor">
+        <div class="fallback">
+            <input name="file" type="file" />
+        </div>
+    </form>
+</div>
+
+
+<style>
+    .uploadContainer__h2 {
+        font-size: 48px;
+        margin: 0 0 20px 0;
+        text-align: center;
+        font-weight: normal;
+
+    }
+    .upload-container {
+        color: white;
+        padding: 40px 0px;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #1f8bff;
+    }
+
+    .decor {
+        border: 2px dashed white !important;
+        background-color: #1f8bff;
+        height: 70vh;
+        font-size: 24px;
+        margin: 0 20px;
+        align-items: center;
+    }
+</style>
+
+
+<script>
+    Dropzone.options.uploadWidget = {
+        dictDefaultMessage: 'Перетащите файлы сюда или кликните и выберите. Они сразу загрузятся в вашу папку',
+        addRemoveLinks: true,
+        init: function () {
+
+            this.on('sending', function(file, xhr, formData){
+                formData.append('userId', {{ id }});
+                console.log( {{ id }} );
+            });
+        }
+    }
+</script>
+<!--<script type="text/javascript">-->
+    <!--Dropzone.options.uploadWidget = {-->
+        <!--paramName: 'file',-->
+        <!--maxFilesize: 3, // MB-->
+        <!--maxFiles: 1,-->
+        <!--dictDefaultMessage: 'Drag an image here to upload, or click to select one',-->
+        <!--init: function() {-->
+            <!--this.on('sending', function(file, xhr, formData){-->
+                <!--formData.append('userId', {{ id }});-->
+                <!--console.log( {{ id }} );-->
+            <!--});-->
+
+            <!--this.on('success', function( file, resp ){-->
+                <!--console.log( file );-->
+                <!--console.log( resp );-->
+            <!--});-->
+<!--//            this.on('thumbnail', function(file) {-->
+<!--//                if ( file.width < 640 || file.height < 480 ) {-->
+<!--//                    file.rejectDimensions();-->
+<!--//                } else {-->
+<!--//                    file.acceptDimensions();-->
+<!--//                }-->
+<!--//            });-->
+        <!--},-->
+        <!--accept: function(file, done) {-->
+<!--//            file.acceptDimensions = done;-->
+<!--//            file.rejectDimensions = function() {-->
+<!--//                done('The image must be at least 640 x 480px')-->
+<!--//            };-->
+        <!--}-->
+    <!--};-->
+<!--</script>-->

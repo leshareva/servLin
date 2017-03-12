@@ -1,0 +1,387 @@
+* {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	margin: auto;
+	width: 510px;
+}
+.section { display: none; }
+.response_json { display: none; }
+
+.header {
+	background: #0077A3;
+	margin-bottom: 30px;
+	padding: 10px 0;
+}
+
+#logoPayture {
+	background: url(../../../../../../../Downloads/Inpay_Default 2/Payture_2.0/images/paytureLogo.png) no-repeat right;
+	height: 33px;
+}
+
+h2 {
+	color: #505050;
+	font-size: 20px;
+	margin-bottom: 15px; 
+}
+h3 {
+	color: #505050;
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+
+a { color: #00AEEF; }
+a:hover { text-decoration: none; }
+
+.clearfix {
+	display: block;
+	position: relative;
+}
+.clearfix:after {
+	clear: both;
+	content: ' ';
+	display: block;
+	font-size: 0;
+	line-height: 0;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+* html .clearfix { height: 1%; }
+
+input[type="text"],
+input[type="tel"],
+input[type="num"] {
+	background: #FFFFFF;
+	border: 1px solid #DDDDDD;
+	border-radius: 3px;
+	box-shadow: 0 1px 0 rgba(255,255,255,0.5);
+	-moz-box-sizing: border-box;
+	box-sizing : border-box;
+	display: inline-block;
+	font-size: 15px; 
+	line-height: 18px;
+	height: 24px;
+	padding: 2px 4px;
+	text-align: center;
+	text-transform: uppercase;
+	width: 100%;
+}
+input:focus, button:focus{ outline: none; }
+input:disabled {
+	border: 1px solid transparent;
+	background: none;
+	box-shadow: none;
+	color: #505050;
+	text-shadow: 0 1px 0 #FFFFFF;
+}
+
+.label{
+	color: #333;
+	display: inline-block;
+	font-size: 10px;
+	line-height: 12px;
+	text-transform: uppercase;
+	text-shadow: 0 1px 0 #FFFFFF;
+}
+
+.clear{
+	float: none;
+	clear: both;
+}
+
+/* --- Errors --- */
+.error {
+	display: none;
+	background: #d93975;
+	color: #FFFFFF;
+	font-size: 12px;
+	line-height: 16px;
+	border-radius: 4px;
+	padding: 3px 10px;
+	position: absolute;
+	top: -105%;
+	white-space: nowrap;
+}
+.error:after {
+	content: "";
+	border-top: 4px solid #d93975;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	position:absolute;
+	bottom: -4px;
+	left: 30px;
+	width: 0;
+	height: 0;
+}
+
+.wrong { color: #AF2E66; }
+
+#errorTop{
+	color: #AF2E66;
+	margin-bottom: 20px;
+}
+
+/* --- PAYMENT TYPE --- */
+#paymentType .type {
+	padding: 25px 0;
+}
+#paymentType .type > *{
+	display: inline-block;
+	vertical-align: middle;
+}
+#paymentType .type .icon {
+	background: #F1F2F3;
+	border-radius: 20px;
+	height: 90px;
+	margin-right: 30px;
+	padding: 10px;
+	width: 90px;
+}
+
+#paymentType .type .text h3 { margin-bottom: 10px; }
+#paymentType .type .text p {
+	color: #888888;
+	font-size: 14px;
+}
+
+/* --- PAY CARD --- */
+.card {
+	background: url(../../../../../../../Downloads/Inpay_Default 2/Payture_2.0/images/card.png) no-repeat top left;
+	height: 160px;
+	margin: 20px auto;
+	padding: 20px;
+	position: relative;
+	width: 455px;
+}
+
+.card .clearfix {
+	margin: 0 0 12px;
+	text-align: center;
+	width: 260px;
+}
+
+.selectCard {
+	margin-bottom: 15px;
+	text-align:center;
+}
+.selectCard * { font-size: 12px; }
+.selectCard select {
+	margin: 0 10px;
+	width: 140px;
+}
+
+/* -- Card type -- */
+.CardType {
+	background: url(../../../../../../../Downloads/Inpay_Default 2/Payture_2.0/images/cardtype.png) no-repeat 0 32px;
+	height: 32px;
+}
+.CardType.visa		{ background-position: right top; }
+.CardType.master 	{ background-position: right bottom; }
+
+/* -- Card Number -- */
+.CardNumber input {
+	margin: 0 1%;
+	width: 21%;
+}
+
+/* -- Expired Date -- */
+.ExpiredDate .error {
+	top: -14%;
+	left: 60px;
+}
+.ExpiredDate .label { width: 60px;}
+.ExpiredDate .month { margin-left: 80px; }
+.ExpiredDate input { width: 50px; }
+
+.ExpiredDate .valid {
+	font-size: 8px;
+	text-align: right;
+	width: 70px;
+	vertical-align: bottom;
+}
+
+/* -- card holder -- */
+.CardHolder .error {
+	top: auto;
+	bottom: -105%;
+}
+.CardHolder .error:after {
+	border-bottom: 4px solid #d93975;
+	border-top: none;
+	top: -4px;
+}
+.CardHolder input { text-align: left; }
+
+/* -- CVV-- */
+.CVV.clearfix {
+	position: absolute;
+	top: 65px;
+	left: 370px;
+	width: 110px;
+}
+.CVV .error {
+	top: -12%;
+	left: 30px;
+}
+.CVV .label{
+	margin: 0 0 4px 53px;
+}
+.CVV .label.info{
+	text-transform: none;
+	margin: 5px 0 0;
+}
+.CVV .numbers {
+	color: #505050;
+	float: left;
+	line-height: 24px;
+	margin: 0 5px 0 10px;
+	text-shadow: 0 1px 0 #FFFFFF;
+}
+.CVV input { width: 50px; }
+
+#addCard {
+	color: #505050;
+	font-size: 12px;
+	position: absolute;
+	top: 160px;
+	left: 310px;
+	text-shadow: 0 1px 0 #FFFFFF;
+}
+#addCard input{ margin-right: 5px; }
+
+/* --- Pay Button --- */
+.payBlock {
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.payBlock a {
+	color: #0077a3;
+	display: inline-block;
+	font-size: 14px;
+	height: 24px;
+	line-height: 24px;
+	margin-top: 20px;
+	text-decoration: none;
+}
+.payBlock a span {
+	background: rgba(0, 0, 0, 0) url("../../../../../../../Downloads/Inpay_Default 2/Payture_2.0/images/image.png") no-repeat scroll 0 -38px;
+	display: inline-block;
+	height: 22px;
+	margin-bottom: 2px;
+	margin-right: 10px;
+	vertical-align: middle;
+	width: 26px;
+}
+
+/* MasterPass */
+.MPPayBlock * {
+	display: inline-block;
+	vertical-align: middle;
+}
+.MPPayBlock span { margin: 0 10px; }
+
+button{
+	background: #00AEEF;
+	border: none;
+	border-radius: 2px;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 16px;
+	position: relative;
+	padding: 5px 15px;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+	width: 110px;
+}
+button:hover { background: #00BFF6; }
+button:disabled {
+	background: #D0D0D0;
+	cursor: default;
+}
+button.loading {
+	background: #00AEEF url(../../../../../../../Downloads/Inpay_Default 2/Payture_2.0/images/button_loader.gif) center no-repeat;
+	text-indent: -9999px
+}
+
+/* -- Return template -- */
+.return p,
+#result p {
+	color: #666666;
+	font-size: 14px;
+	line-height: 21px;
+}
+
+/* -- LOADER -- */
+.loader {
+	background: rgba(255, 255, 255, 0.8);
+	display: none;
+	height: 100%;
+	position: fixed;
+	text-align: center;
+	top: 0;
+	width: 100%;
+}
+.loader .container {
+	margin: -50px 0 0 -255px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
+.loader img {
+	display: block;
+	margin: 0 auto 50px;
+}
+.loader a {
+	display: inline-block;
+	width: 220px;
+}
+
+/** Spasibo **/
+#Spasibo { display: block; }
+
+.spasibo_head { margin-bottom: 30px; }
+.spasibo_head > * {
+	float: right;
+	display: block;
+}
+.spasibo_head h2 {
+	float: left;
+	margin: 20px 0;
+}
+#Spasibo p { 
+	font-size: 14px;
+	margin-bottom: 20px; 
+}
+#Spasibo .row { 
+	font-size: 14px;
+	margin-bottom: 20px; 
+}
+#Spasibo .row .name {
+	display: inline-block; 
+	width: 50%;
+	margin-right: 5%; 
+	text-align: right;
+	vertical-align: top;
+}
+#Spasibo .row .value { 
+	color: #00AEEF;
+	display: inline-block;
+	font-size: 16px;
+	vertical-align: top;
+}
+
+#Spasibo .points {
+	margin: 10px auto 40px;
+	text-align: center;
+	width: 80%;
+}
+
+#Spasibo .points button {
+	margin-top: 15px;
+	width: 150px;
+}
